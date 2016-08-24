@@ -1,7 +1,7 @@
 int shipX = 100;
 int shipY = 40;
 int shipWidth = 40;
-int shipHeight = 20;
+int shipHeight = shipWidth;
 
 void setup()
 {
@@ -14,14 +14,8 @@ void setup()
 void draw()
 {
   stars();
-  //moon();
   deathStar();
   spaceship();
-
-}
-
-void moon(){
-	ellipse(60,100,50,50); 
 }
 
 void deathStar(){
@@ -44,10 +38,19 @@ void deathStar(){
 
 void spaceship(){
 	//body
-	fill(255,215,0);
+	fill(255,0,0);
 	noStroke();
-	rect(shipX, shipY, shipWidth, shipHeight);
-	triangle(shipX + shipWidth, shipY, shipX + shipWidth + shipHeight, shipY + shipHeight/2, shipX + shipWidth, shipY + shipHeight);
+	ellipse(shipX, shipY, shipWidth, shipHeight);
+	//triangle(shipX + shipWidth, shipY, shipX + shipWidth + shipHeight, shipY + shipHeight/2, shipX + shipWidth, shipY + shipHeight);
+
+	//windows
+
+
+	//tail
+	fill(255,205,0);
+	rect(shipX - shipWidth, shipY - shipY/4, shipWidth/2, shipHeight/2);
+	rect(shipX + shipWidth/2, shipY - shipY/4, shipWidth/2, shipHeight/2);
+
 }
 
 void stars(){
